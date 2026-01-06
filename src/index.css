@@ -80,7 +80,6 @@ body {
    SCROLL ANIMATION
 ========================= */
 .section {
-  opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
 }
@@ -134,12 +133,12 @@ p {
    PROFILE IMAGE
 ========================= */
 .profile-img {
-  width: 260px;
+  width: 250px;
+  max-width: 100%;
   border-radius: 50%;
-  border: 2px solid var(--accent);
-  box-shadow: 0 10px 30px var(--shadow-accent);
+  border: 4px solid var(--accent);
+  box-shadow: 0 12px 30px var(--shadow-accent);
 }
-
 /* =========================
    BUTTONS
 ========================= */
@@ -147,6 +146,11 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.buttons a {
+  display: flex;
+  align-items: center;
 }
 
 .btn {

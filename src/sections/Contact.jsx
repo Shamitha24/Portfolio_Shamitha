@@ -1,47 +1,27 @@
-import { motion } from "framer-motion";
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
 function Contact() {
   return (
-    <motion.section
-      id="contact"
-      className="section container"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.8 }}
-    >
+    <section id="contact" className="container">
       <h2>Contact</h2>
-      <p style={{ marginBottom: "24px", color: "var(--text-muted)" }}>
-        Feel free to reach out via email or connect with me on LinkedIn and GitHub.
-      </p>
 
-      <div className="buttons">
-        <a
-          className="btn"
-          href="mailto:sxm230333@utdallas.edu"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Email Me
+      <div className="contact-buttons">
+        <a href="mailto:sxm230333@utdallas.edu" className="btn">
+          <FaEnvelope className="icon" />
+          <span>Email</span>
         </a>
-        <a
-          className="btn"
-          href="https://www.linkedin.com/in/shamitha-mamidi-1556a0233/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
+
+        <a href="https://www.linkedin.com/in/shamitha-mamidi-1556a0233/" className="btn" target="_blank">
+          <FaLinkedin className="icon" />
+          <span>LinkedIn</span>
         </a>
-        <a
-          className="btn"
-          href="https://github.com/Shamitha24"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
+
+        <a href="https://github.com/Shamitha24" className="btn" target="_blank">
+          <FaGithub className="icon" />
+          <span>GitHub</span>
         </a>
       </div>
-    </motion.section>
+    </section>
   );
 }
 

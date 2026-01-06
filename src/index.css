@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,22 +8,77 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* BARBIE THEME */
+/* =========================
+   LIGHT THEME (Barbie theme)
+========================= */
 :root {
-  --bg: #fff0f6;            /* soft pink background */
-  --bg-soft: #ffd6e8;       /* blush */
-  --card: #ffffff;          /* clean white cards */
-  --text-main: #2d0f1f;     /* deep plum text */
-  --text-muted: #7a3b5c;    /* muted rose */
-  --accent: #ff4fa3;        /* Barbie pink */
-  --accent-2: #b983ff;      /* lavender */
+  --bg: radial-gradient(
+    circle at top,
+    #ffe3f1,
+    #fff0f6,
+    #fdf2f8
+  );
+  --bg-soft: #ffd6e8;
+  --card: #ffffff;
+
+  --text-main: #2d0f1f;
+  --text-muted: #7a3b5c;
+
+  --accent: #ff4fa3;
+  --accent-2: #b983ff;
+
   --border: rgba(255, 79, 163, 0.15);
+  --shadow-accent: rgba(255, 79, 163, 0.35);
 }
 
+/* =========================
+   DARK THEME (FAANG-SAFE)
+========================= */
+[data-theme="dark"] {
+  --bg: #1f1f1f;
+  --bg-soft: #2a2a2a;
+  --card: #2a2a2a;
+
+  --text-main: #e5e5e5;
+  --text-muted: #b0b0b0;
+
+  --accent: #9f7aea;       /* soft purple */
+  --accent-2: #c4b5fd;     /* lighter purple gradient */
+  
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow-accent: rgba(159, 122, 234, 0.25);
+}
+
+
+/* Button hover in dark/gray theme */
+[data-theme="dark"] .btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #ffffff;
+  box-shadow: 0 10px 24px var(--shadow-accent);
+}
+
+[data-theme="dark"] .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px var(--shadow-accent);
+}
+
+
+
+/* =========================
+   BASE
+========================= */
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: var(--bg);   
+  color: var(--text-main);
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
 .section {
   opacity: 0;
   transform: translateY(40px);
@@ -33,45 +90,23 @@ html {
   transform: translateY(0);
 }
 
-.profile-img {
-  width: 260px;
-  border-radius: 50%;
-  border: 4px solid transparent;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(135deg, #ff4fa3, #b983ff) border-box;
-  box-shadow: 0 20px 40px rgba(255, 79, 163, 0.35);
-}
-
-
-
-
-
-/* BASE */
-body {
-  background: radial-gradient(
-    circle at top,
-    #ffe3f1,
-    #fff0f6,
-    #fdf2f8
-  );
-  color: var(--text-main);
-}
-
-
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+/* =========================
+   LAYOUT
+========================= */
 .container {
   max-width: 1120px;
   margin: auto;
   padding: 80px 24px;
 }
 
-/* HEADINGS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
 h1 {
   font-size: 3.2rem;
   font-weight: 700;
@@ -95,7 +130,19 @@ p {
   margin-bottom: 16px;
 }
 
-/* BUTTON */
+/* =========================
+   PROFILE IMAGE
+========================= */
+.profile-img {
+  width: 260px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow: 0 10px 30px var(--shadow-accent);
+}
+
+/* =========================
+   BUTTONS
+========================= */
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -103,40 +150,42 @@ p {
 }
 
 .btn {
-  background: linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent-2)
-  );
-  color: white;
+  display: flex;
+  align-items: center;   
+  gap: 8px;              
   padding: 14px 28px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 12px 30px rgba(255, 79, 163, 0.35);
+  box-shadow: 0 12px 30px var(--shadow-accent);
 }
+
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(185, 131, 255, 0.45);
 }
 
-
-/* GRID */
+.icon {
+  font-size: 1.2rem;   
+}
+/* =========================
+   GRID & CARDS
+========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px;
 }
 
-/* CARD */
 .card {
   background: var(--card);
   border-radius: 20px;
   padding: 28px;
   border: 1px solid var(--border);
-  box-shadow: 0 20px 50px rgba(255, 79, 163, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease;
 }
 
@@ -144,8 +193,9 @@ p {
   transform: translateY(-6px);
 }
 
-
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
   position: sticky;
   top: 0;
@@ -153,6 +203,10 @@ p {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   z-index: 10;
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(2, 6, 23, 0.85);
 }
 
 .navbar-inner {
@@ -179,35 +233,41 @@ nav a:hover {
   color: var(--text-main);
 }
 
-/* RESPONSIVE TWEAKS */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.4rem;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
-
-  .container {
-    padding: 60px 20px;
-  }
-
-  nav a {
-    margin-left: 16px;
-  }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.6rem; }
+  .container { padding: 60px 20px; }
+  nav a { margin-left: 16px; }
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.4rem; }
+  nav { display: none; }
+}
 
-  h2 {
-    font-size: 1.4rem;
-  }
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
 
-  nav {
-    display: none; 
-  }
+.contact-buttons .btn {
+  display: flex;
+  align-items: center;      
+  gap: 8px;                 
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-buttons .btn .icon {
+  font-size: 1.2rem;       
 }
